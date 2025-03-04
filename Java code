@@ -1,0 +1,54 @@
+package com.example;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class HomePage extends JFrame {
+
+    public HomePage() {
+        // Set window title
+        setTitle("Home Page - AWT & Swing");
+        
+        // Set window size
+        setSize(400, 300);
+        
+        // Set layout
+        setLayout(new BorderLayout());
+
+        // Welcome Label
+        JLabel welcomeLabel = new JLabel("Welcome to My Maven Swing App", JLabel.CENTER);
+        welcomeLabel.setFont(new Font("Arial", Font.BOLD, 16));
+        add(welcomeLabel, BorderLayout.CENTER);
+
+        // Button Panel
+        JPanel panel = new JPanel();
+        JButton exitButton = new JButton("Exit");
+        
+        // Button Action Listener
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+
+        panel.add(exitButton);
+        add(panel, BorderLayout.SOUTH);
+
+        // Set default close operation
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // Center the window
+        setLocationRelativeTo(null);
+        
+        // Make it visible
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        // Run the GUI
+        SwingUtilities.invokeLater(() -> new HomePage());
+    }
+}
